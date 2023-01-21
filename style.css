@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ul{
+    list-style: none;
+}
+.container{
+    min-height: 100vh;
+    font-family: 'Josefin Sans', sans-serif; 
+}
+.pc-white{
+    width: 100%;
+    height: 40vh;
+}
+.row{
+   width: clamp(300px,55vw,60vw);
+    position: absolute;
+    z-index: 10;
+    top:80px;
+    left: 16%;
+}
+.item,.banner{
+  padding: .5rem  .5rem;  
+  background-color: rgb(255, 255, 255);
+  border-bottom: 1px dotted black;
+  border-radius: .2rem;
+  transition: all 0.5s;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.item:hover{
+    background-color:rgb(118, 116, 115) ;
+    color: rgb(216, 220, 225);
+}
+.dels{
+    background-color: rgb(217, 25, 25);
+    border: none;
+    position: absolute;
+    right:0;
+    padding: .45rem .6rem;
+    bottom:0;
+    cursor: pointer;
+}
+.edits{
+    background-color: rgb(23, 236, 144);
+    border: none;
+    position: absolute;
+    right:35px;
+    padding: .45rem .6rem;
+    bottom:0;
+    cursor: pointer;
+}
+.inputs{
+    position: relative;
+}
+.banner{
+    display: flex;
+    justify-content: space-between;
+}
+
+.head{
+    /* min-width: 70vw; */
+    min-width: 100%;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.usertext{
+   width: 100%;
+    padding: .6rem .6rem;
+    border: none;
+    background-color: #ffffff;
+    outline: none;
+    border-radius: 5px;
+}
+.enter{
+    font-size: 1.6rem;
+    color:rgb(14, 12, 12);
+    margin-left: .3rem;
+    position:absolute;
+    right: 0;
+    cursor: pointer;
+}
+.inputs{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+img{
+    object-fit: cover;
+    height: .9rem;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.streak{
+    text-decoration: line-through;;
+}
+.item{
+    display: flex;
+}
+.banner{
+    margin-top: 2rem;
+}
+#Clear-Task{
+    cursor: pointer;
+}
+li:hover{
+    /* margin-right: 1rem; */
+    cursor: pointer;
+}
+#counter,#comp-Task{
+    font-weight: bold;
+}
+.dark{
+    background: rgb(31, 32, 46);
+    transition: all .5s;
+    color:rgb(255, 255, 255);
+}
