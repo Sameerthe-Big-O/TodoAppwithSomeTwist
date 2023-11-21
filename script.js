@@ -20,13 +20,13 @@ function toggle(){
   })
   if(image.classList.contains('img')){
      image.classList.remove('img');
-     image.src="/bg-desktop-dark.jpg";
-     sun.src="/icon-moon.svg"; 
+     image.src="./bg-desktop-dark.jpg";
+     sun.src="./icon-moon.svg"; 
   }
   else {
     image.classList.add('img');
-    image.src="/bg-desktop-light.jpg";
-    sun.src="/icon-sun.svg";
+    image.src="./bg-desktop-light.jpg";
+    sun.src="./icon-sun.svg";
   }
 }
 sun.addEventListener('click',toggle)
