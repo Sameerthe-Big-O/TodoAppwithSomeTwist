@@ -56,3 +56,40 @@
  
 </body>
 </html>
+
+
+    import jwt from 'jsonwebtoken';
+import { Request, Response, NextFunction } from 'express';
+import UnauthenticatedError from '../errors/unthenticatedError.ts';
+import { ErrorCodes } from '../constant/errorCodes.ts';
+import dev from '../config/dev.ts';
+
+export const auth = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const authHeader = req.headers.authorization;
+        if (!authHeader || !authHeader.startsWith('Bearer')) {
+            throw new UnauthenticatedError(
+                ErrorCodes.UNAUTHORIZED,
+                401,
+                'failed'
+            );
+        }
+        const token = authHeader.split(' ')[1];
+        if (!token) {
+            return res
+                .status(401)
+                .json({ message: 'Authorization required...! 👮 ' });
+        }
+        const decodedtoken = jwt.verify(token, dev.jwt.jwtSecret);
+        if (
+            typeof decodedtoken === 'object' &&
+            decodedtoken !== null &&
+            'userId' in decodedtoken
+        ) {
+            req.user = { id: decodedtoken.userId, name: decodedtoken.name };
+            return next();
+        }
+    } catch (error) {
+        next(error);
+    }
+};
